@@ -47,6 +47,16 @@
     </div>
 </body>
 <script>
+    var number = 0
+    window.onload = function (){
+        if (localStorage.getItem("number")) {
+            number = localStorage.getItem("number")
+            updateNumber()
+        } else {
+            number = 0
+        }
+    }
+
 
     function animateImage(src) {
     // Create the image element
@@ -91,8 +101,7 @@
         }, { once: true });
     }, 2000);
 }
-
-    var number = 0
+    
     var multiplier = 1.85
 
     var stats = {
@@ -137,6 +146,8 @@
             }
         }
     }
+    
+    localStorage.setItem("number", number)
 }, 1000);
     $("#click").on("click", function() {
         number++
